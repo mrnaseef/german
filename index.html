@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaseefMuhammed Project</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://media.twiliocdn.com/sdk/js/client/releases/1.13.0/twilio.min.js"></script>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("phone").value;
+    
+            if (name === "" || email === "" || phoneNumber === "") {
+                alert("Please fill in all the fields");
+                return false;
+            }
+    
+            // Twilio API credentials
+            var accountSid = 'AC0830194d6515c6321508153d4dd5c005';
+            var authToken = 'f038fdec5e99b67371d1d0ad7e54ebb1';
+            var twilioPhoneNumber = '+919562458633';
+    
+            // Create Twilio client
+            var twilioClient = new Twilio(accountSid, authToken);
+    
+            // Format the message
+            var messageBody = `Name: ${name}\nEmail: ${email}\nPhone: ${phoneNumber}`;
+    
+            // Send message to WhatsApp number
+            twilioClient.messages.create({
+                to: 'whatsapp:+919562458633', // Replace with your target WhatsApp number
+                from: `whatsapp:${twilioPhoneNumber}`,
+                body: messageBody
+            }).then(function () {
+                // Clear input fields after successful message send
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("phone").value = "";
+    
+                alert("Message sent successfully!");
+            }).catch(function (error) {
+                console.error('Error sending message:', error);
+                alert("Failed to send message. Please try again.");
+            });
+    
+            return false; // Prevent form submission
+        }
+
+        function dialPhoneNumber() {
+            // Specify the phone number
+            var phoneNumber = '9562458633';
+
+            // Open the phone app and dial the number
+            window.location.href = 'tel:' + phoneNumber;
+        }
+    </script>
+    
+
+
+</head>
+<body>
+    <!--Navigation -->
+    <nav> 
+        <img src="images/logo.svg" alt="">
+        <div class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!--Home -->
+    <section id="Home">
+        <h2>Enhance Your Future with Garman Klub</h2>
+        <p>German has the largest number of native speakers in the European Union (far more than English, Spanish, or French). 
+            German is among the ten most commonly spoken languages in the world. 
+            It is also a lingua franca of Central and Eastern Europe.</p>
+            <div class="btn">
+                <a class="blue" href="#" onclick="dialPhoneNumber()">Learn More</a>
+                <a class="yellow" href="#">Contact</a>
+            </div>
+    </section>
+
+    <!--featurs-->>
+
+    <section id="features">
+        <h1>Awesome Features</h1>
+        <p>German has the largest number of native speakers in the European Union (far more than English, Spanish, or French).</p>
+        <div class="cardbox">
+        <div class="fea-base">
+            <div class="fea-box">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Scholarship Facility</h3>
+                <p>German is among the ten most commonly spoken languages in the world. </p>
+            </div>
+        </div>
+        <div class="fea-base">
+            <div class="fea-box">
+                <i class="fas fa-file-certificate"></i>
+                <h3>Online Course</h3>
+                <p>German is among the ten most commonly spoken languages in the world. </p>
+            </div>
+        </div>
+        <div class="fea-base">
+            <div class="fea-box">
+                <i class="fas fa-award"></i>
+                <h3>Global cretification</h3>
+                <p>German is among the ten most commonly spoken languages in the world. </p>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!--Course-->
+
+    <section id="Course">
+        <h1>Our Popular Courses</h1>
+        <P>German is among the ten most commonly spoken languages in the world.</P>
+    <div class="box">
+        <div class="course-box">
+            <div class="courses">
+                <img src="images/c1.jpg" alt="">
+                <div class="details">
+                    <span>updated 2/1/2023</span>
+                    <h6>A1</h6>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(239)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    ₹ 45000
+                </div>
+            </div>
+        </div>
+        <div class="course-box">
+            <div class="courses">
+                <img src="images/c1.jpg" alt="">
+                <div class="details">
+                    <span>updated 2/1/2023</span>
+                    <h6>A1</h6>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(239)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    ₹ 45000
+                </div>
+            </div>
+        </div>
+        <div class="course-box">
+            <div class="courses">
+                <img src="images/c1.jpg" alt="">
+                <div class="details">
+                    <span>updated 2/1/2023</span>
+                    <h6>A1</h6>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(239)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    ₹ 45000
+                </div>
+            </div>
+        </div>
+        <div class="course-box">
+            <div class="courses">
+                <img src="images/c1.jpg" alt="">
+                <div class="details">
+                    <span>updated 2/1/2023</span>
+                    <h6>A1</h6>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(239)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    ₹ 45000
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+     <!--lOGIN-->
+
+    <section id="registration">
+        <div class="reminder">
+            <p>Get Online Course For Free</p>
+            <h1>Register To Get it</h1>
+            <div class="time">
+                <div class="date">
+                    2 <br> Day
+                </div>
+                <div class="date">
+                   24  <br> Hours
+                </div>
+                <div class="date">
+                    10 <br> Minutes
+                </div>
+                <div class="date">
+                    59 <br> seconds
+                </div>
+            </div>
+        </div>
+        <div class="form">
+            <h3>Create Free Account NOW!</h3>
+            <input type="text" placeholder="Name" name="name" id="name">
+            <input type="text" placeholder="Email Address" name="email" id="email">
+            <input type="text" placeholder="Phone Number" name="phone" id="phone">
+            <div class="btn">
+                <a class="yellow" href="#" onclick="return validateForm()">Submit</a>
+
+                
+            </div>
+        </div>
+    </section>
+
+
+<!--profile-->
+
+<section id="experts">
+    <h1>Community Experts</h1>
+    <p>German is among the ten most commonly spoken languages in the world.</p>
+    <div class="expertbox">
+        <dive class="profile">
+            <img src="images/pro1.webp" alt="">
+            <h6>Riya nourin</h6>
+            <p>the ten most commonly spoken languages </p>
+            <dive class="pro-links">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+            </dive>
+        </dive>
+        <dive class="profile">
+            <img src="images/pro1.webp" alt="">
+            <h6>Riya nourin</h6>
+            <p>the ten most commonly spoken languages </p>
+            <dive class="pro-links">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+            </dive>
+        </dive>
+        <dive class="profile">
+            <img src="images/pro1.webp" alt="">
+            <h6>Riya nourin</h6>
+            <p>the ten most commonly spoken languages </p>
+            <dive class="pro-links">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+            </dive>
+        </dive>
+        <dive class="profile">
+            <img src="images/pro1.webp" alt="">
+            <h6>Riya nourin</h6>
+            <p>the ten most commonly spoken languages </p>
+            <dive class="pro-links">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+            </dive>
+        </dive>
+    </div>
+</section>
+<footer>
+    <div class="footer-col">
+        <h3>Top Products</h3>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+    </div>
+    <div class="footer-col">
+        <h3>Top Products</h3>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+    </div>
+    <div class="footer-col">
+        <h3>Top Products</h3>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+    </div>
+    <div class="footer-col">
+        <h3>Top Products</h3>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+        <li>manage Reputation</li>
+    </div>
+    <div class="footer-col">
+        <h3>NewsLetter</h3>
+        <p>jkwgfgweigfhigewdfcdkbhvijhrgdgbcihg</p>
+        <div class="subscribe">
+            <input type="text" placeholder="Your Email Address">
+            <a href="#" class="yellow">SUBSCRIBE</a>
+        </div>
+
+    </div>
+    <div class="Copyright">
+        <p>Spanish, or French. German is among the ten most commonly spoken languages in the world. It is</p>
+        <div class="pro-links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+        </div>
+    </div>
+</footer>
+    
+
+</body>
+</html>
